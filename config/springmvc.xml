@@ -10,9 +10,13 @@
 
 	<!-- 配置Handler -->
 	<bean id="ItemsController1" name="/queryItem.action" class="com.fu.ssm.controller.ItemsController1"/>
+	<!-- 配置另一个Handler -->
+	<bean id="ItemsController2" class="com.fu.ssm.controller.ItemsController2"/>
+	
 	
 	<!-- 处理器映射器
 		将bean的name作为url进行查找，需要在配置Handler时指定beanname(就是url)
+		所有的映射器都实现了HandlerMapping接口
 	 -->
 	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
 
@@ -22,7 +26,7 @@
 			<props>
 				<!-- 对ItemsController1进行url映射，url是/queryItem1.action -->
 				<prop key="/queryItem1.action">ItemsController1</prop> 
-				<prop key="/queryItem2.action">ItemsController1</prop> 
+				<prop key="/queryItem2.action">ItemsController2</prop> 
 			</props>
 		</property>
 	</bean>
@@ -31,6 +35,11 @@
 		实现HandlerAdapter接口
 	-->
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	
+	<!-- 另一个非注解的适配器 
+		要求实现HttpRequestHandler接口
+	-->
+	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
 	
 	<!-- 视图解析器 
 		解析jsp视图，默认使用jstl标签
