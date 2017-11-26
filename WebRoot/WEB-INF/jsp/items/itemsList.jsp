@@ -10,7 +10,7 @@
 </head>
 <body>
 	<form
-		action="${pageContext.request.contextPath }/queryItem.action"
+		action="${pageContext.request.contextPath }/queryItems.action"
 		method="post">
 		查询条件：
 		<table width="100%" border=1>
