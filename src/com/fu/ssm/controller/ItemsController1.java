@@ -10,6 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.fu.ssm.po.Items;
+/**
+ * 实现Controller接口
+ * @author fu
+ *
+ */
 
 public class ItemsController1 implements Controller {
 
