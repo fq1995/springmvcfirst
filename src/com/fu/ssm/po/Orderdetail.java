@@ -3,13 +3,11 @@ package com.fu.ssm.po;
 public class Orderdetail {
     private Integer id;
 
-    private Integer ordersId;
-
     private Integer itemsId;
 
     private Integer itemsNum;
-    
-    private Items items;
+
+    private Integer ordersId;
 
     public Integer getId() {
         return id;
@@ -17,14 +15,6 @@ public class Orderdetail {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getOrdersId() {
-        return ordersId;
-    }
-
-    public void setOrdersId(Integer ordersId) {
-        this.ordersId = ordersId;
     }
 
     public Integer getItemsId() {
@@ -43,13 +33,11 @@ public class Orderdetail {
         this.itemsNum = itemsNum;
     }
 
-	public Items getItems() {
-		return items;
-	}
+    public Integer getOrdersId() {
+        return ordersId;
+    }
 
-	public void setItems(Items items) {
-		this.items = items;
-	}
-    
-    
+    public void setOrdersId(Integer ordersId) {
+        this.ordersId = ordersId;
+    }
 }

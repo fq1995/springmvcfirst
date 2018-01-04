@@ -44,7 +44,7 @@ public class ItemsController1 implements Controller {
 		modelAndView.addObject("itemsList", itemsList);
 
 		//指定试图
-		modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");
+		modelAndView.setViewName("items/itemsList");
 		
 		return modelAndView;
 	}

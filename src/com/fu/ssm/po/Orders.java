@@ -1,7 +1,6 @@
 package com.fu.ssm.po;
 
 import java.util.Date;
-import java.util.List;
 
 public class Orders {
     private Integer id;
@@ -13,11 +12,7 @@ public class Orders {
     private Date createtime;
 
     private String note;
-    
-    private User user;
 
-    private List<Orderdetail> list;
-    
     public Integer getId() {
         return id;
     }
@@ -57,29 +52,4 @@ public class Orders {
     public void setNote(String note) {
         this.note = note == null ? null : note.trim();
     }
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	public List<Orderdetail> getList() {
-		return list;
-	}
-
-	public void setList(List<Orderdetail> list) {
-		this.list = list;
-	}
-
-	@Override
-	public String toString() {
-		return "Orders [id=" + id + ", userId=" + userId + ", number=" + number + ", createtime=" + createtime
-				+ ", note=" + note + ", user=" + user + ", list=" + list + "]";
-	}
-
-    
-	
 }

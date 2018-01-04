@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatils.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- <typeAlias type="com.fu.po.User" alias="user"/> -->
+		<!-- 批量扫描包 -->
+		<package name="com.fu.ssm.po"/>
+	</typeAliases>
+
+</configuration>

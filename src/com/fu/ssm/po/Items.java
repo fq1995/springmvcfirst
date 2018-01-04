@@ -7,13 +7,13 @@ public class Items {
 
     private String name;
 
+    private String detail;
+
     private Float price;
 
     private String pic;
 
     private Date createtime;
-
-    private String detail;
 
     public Integer getId() {
         return id;
@@ -29,6 +29,14 @@ public class Items {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 
     public Float getPrice() {
@@ -53,13 +61,5 @@ public class Items {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
     }
 }
