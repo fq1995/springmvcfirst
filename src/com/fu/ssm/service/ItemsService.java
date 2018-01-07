@@ -10,4 +10,9 @@ public interface ItemsService {
 	// 商品查询列表
 	public List<ItemsCustom> findItemsList(ItemsQueryVO itemsQueryVO) throws Exception;
 
+	//根据ID查询商品信息
+	public ItemsCustom findItemsById(Integer id) throws Exception;
+	
+	//修改商品信息
+	public void updateItems(Integer id, ItemsCustom itemsCustom) throws Exception;
 }
