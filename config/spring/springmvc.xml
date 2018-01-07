@@ -10,10 +10,10 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<!-- 配置Handler -->
-	<bean id="ItemsController1" name="/queryItem.action"
-		class="com.fu.ssm.controller.ItemsController1" />
+	<!-- <bean id="ItemsController1" name="/queryItem.action"
+		class="com.fu.ssm.controller.ItemsController1" /> -->
 	<!-- 配置另一个Handler -->
-	<bean id="ItemsController2" class="com.fu.ssm.controller.ItemsController2" />
+	<!-- <bean id="ItemsController2" class="com.fu.ssm.controller.ItemsController2" /> -->
 	<!-- 对注解的Handler可以单个配置 -->
 	<!-- <bean class="com.fu.ssm.controller.ItemsController3"></bean> -->
 	<!-- 实际开发中使用组件扫描 -->
@@ -24,22 +24,22 @@
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
 
 	<!-- 简单url映射 -->
-	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<!-- 对ItemsController1进行url映射，url是/queryItem1.action -->
+				对ItemsController1进行url映射，url是/queryItem1.action
 				<prop key="/queryItem1.action">ItemsController1</prop>
 				<prop key="/queryItem2.action">ItemsController2</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- 处理器适配器 实现HandlerAdapter接口 -->
-	<bean
-		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" /> -->
 
 	<!-- 另一个非注解的适配器 要求实现HttpRequestHandler接口 -->
-	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
+	<!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" /> -->
 
 
 	<!-- 注解映射器 -->
