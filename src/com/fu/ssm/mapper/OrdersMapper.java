@@ -1,14 +1,12 @@
 package com.fu.ssm.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.fu.ssm.po.Orders;
 import com.fu.ssm.po.OrdersExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface OrdersMapper {
-    int countByExample(OrdersExample example);
+    long countByExample(OrdersExample example);
 
     int deleteByExample(OrdersExample example);
 

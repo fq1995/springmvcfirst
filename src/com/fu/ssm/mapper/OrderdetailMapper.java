@@ -1,24 +1,30 @@
 package com.fu.ssm.mapper;
 
+import com.fu.ssm.po.OrderDetail;
+import com.fu.ssm.po.OrderDetailExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
-import com.fu.ssm.po.Orderdetail;
-import com.fu.ssm.po.OrderdetailExample;
+public interface OrderDetailMapper {
+    long countByExample(OrderDetailExample example);
 
-public interface OrderdetailMapper {
-    int countByExample(OrderdetailExample example);
+    int deleteByExample(OrderDetailExample example);
 
-    int deleteByExample(OrderdetailExample example);
+    int deleteByPrimaryKey(Integer id);
 
-    int insert(Orderdetail record);
+    int insert(OrderDetail record);
 
-    int insertSelective(Orderdetail record);
+    int insertSelective(OrderDetail record);
 
-    List<Orderdetail> selectByExample(OrderdetailExample example);
+    List<OrderDetail> selectByExample(OrderDetailExample example);
 
-    int updateByExampleSelective(@Param("record") Orderdetail record, @Param("example") OrderdetailExample example);
+    OrderDetail selectByPrimaryKey(Integer id);
 
-    int updateByExample(@Param("record") Orderdetail record, @Param("example") OrderdetailExample example);
+    int updateByExampleSelective(@Param("record") OrderDetail record, @Param("example") OrderDetailExample example);
+
+    int updateByExample(@Param("record") OrderDetail record, @Param("example") OrderDetailExample example);
+
+    int updateByPrimaryKeySelective(OrderDetail record);
+
+    int updateByPrimaryKey(OrderDetail record);
 }

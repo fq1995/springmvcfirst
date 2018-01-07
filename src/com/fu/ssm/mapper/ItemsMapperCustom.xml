@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sc.dongV.mapper.ItemsMapperCustom">
+<mapper namespace="com.fu.ssm.mapper.ItemsMapperCustom">
 
 	<!-- 定义商品查询的sql片段，即查询条件 -->
 	<sql id="query_items_where">

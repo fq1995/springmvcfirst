@@ -1,13 +1,17 @@
 package com.fu.ssm.po;
 
-public class Orderdetail {
+import java.io.Serializable;
+
+public class OrderDetail implements Serializable {
     private Integer id;
+
+    private Integer ordersId;
 
     private Integer itemsId;
 
     private Integer itemsNum;
 
-    private Integer ordersId;
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -15,6 +19,14 @@ public class Orderdetail {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getOrdersId() {
+        return ordersId;
+    }
+
+    public void setOrdersId(Integer ordersId) {
+        this.ordersId = ordersId;
     }
 
     public Integer getItemsId() {
@@ -31,13 +43,5 @@ public class Orderdetail {
 
     public void setItemsNum(Integer itemsNum) {
         this.itemsNum = itemsNum;
-    }
-
-    public Integer getOrdersId() {
-        return ordersId;
-    }
-
-    public void setOrdersId(Integer ordersId) {
-        this.ordersId = ordersId;
     }
 }

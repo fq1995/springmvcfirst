@@ -1,8 +1,9 @@
 package com.fu.ssm.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Orders {
+public class Orders implements Serializable {
     private Integer id;
 
     private Integer userId;
@@ -12,6 +13,8 @@ public class Orders {
     private Date createtime;
 
     private String note;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;

@@ -1,14 +1,12 @@
 package com.fu.ssm.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.fu.ssm.po.User;
 import com.fu.ssm.po.UserExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
-    int countByExample(UserExample example);
+    long countByExample(UserExample example);
 
     int deleteByExample(UserExample example);
 
