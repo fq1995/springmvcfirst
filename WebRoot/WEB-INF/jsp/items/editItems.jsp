@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +9,9 @@
 <title>修改商品信息</title>
 </head>
 <body>
-	<form id="itemForm" action="${pageContext.request.contextPath }/items/editItemsSubmit.action" method="post">
+	<form id="itemForm"
+		action="${pageContext.request.contextPath }/items/editItemsSubmit.action"
+		method="post">
 		<input type="hidden" name="id" value="${itemsCustom.id }">
 		修改商品信息：
 		<table width="100%" border="1">
@@ -19,12 +21,14 @@
 			</tr>
 			<tr>
 				<td>商品价格</td>
-				<td><input type="text" name="price" value="${itemsCustom.price }"></td>
+				<td><input type="text" name="price"
+					value="${itemsCustom.price }"></td>
 			</tr>
-<%-- 			<tr>
+			<tr>
 				<td>商品生产日期</td>
-				<td><input type="text" name="createtime" value="<fmt:formatDate value='${itemsCustom.createtime }' pattern='yyyy-MM-dd' />"/></td>
-			</tr> --%>
+				<td><input type="text" name="createtime"
+					value="<fmt:formatDate value='${itemsCustom.createtime }' pattern='yyyy-MM-dd HH:mm:ss' />" /></td>
+			</tr>
 			<tr>
 				<td>商品简介</td>
 				<td><textarea rows="3" cols="30" name="detail">${itemsCustom.detail }</textarea></td>

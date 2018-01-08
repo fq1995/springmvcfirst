@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fu.ssm.po.ItemsCustom;
@@ -69,9 +70,9 @@ public class ItemsController {
 
 	// 根据ID查询商品信息，返回视图名
 	@RequestMapping(value = "/editItems", method = { RequestMethod.POST, RequestMethod.GET })
-	public String editItems(Model model) throws Exception {
+	public String editItems(Model model, @RequestParam(value="id",required=true,defaultValue="1") Integer id) throws Exception {
 		// 调用service根据id查询商品信息
-		ItemsCustom itemsCustom = itemsService.findItemsById(1);
+		ItemsCustom itemsCustom = itemsService.findItemsById(id);
 
 		// 将商品信息放入model
 		model.addAttribute("itemsCustom", itemsCustom);
@@ -83,7 +84,9 @@ public class ItemsController {
 	 * // 修改商品信息
 	 * 
 	 * @RequestMapping("/editItemsSubmit") public ModelAndView editItemsSubmit()
-	 * throws Exception { // 调用service根据id更新商品信息 ItemsCustom itemsCustom =
+	 * throws Exception { 
+	 * // 调用service根据id更新商品信息 
+	 * ItemsCustom itemsCustom =
 	 * itemsService.findItemsById(1);
 	 * 
 	 * // 返回ModelAndView ModelAndView modelAndView = new ModelAndView();
@@ -97,7 +100,9 @@ public class ItemsController {
 
 	// 修改商品信息
 	@RequestMapping("/editItemsSubmit")
-	public String editItemsSubmit(HttpServletRequest request) throws Exception {
+	public String editItemsSubmit(HttpServletRequest request, Integer id, ItemsCustom itemsCustom) throws Exception {
+		itemsService.updateItems(id, itemsCustom);
+		
 		//重定向 ：浏览器地址栏中的url会变化。修改提交的request数据无法传到重定向的地址
 //		return "redirect:queryItems.action";
 		//页面转发: 浏览器地址栏url不变，request可以共享。

@@ -49,7 +49,7 @@
 	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
 
 	<!-- 使用mvc的注解驱动mvc:annotation-driven代替上面的注解映射器和注解适配器 -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
 	<!-- 视图解析器 解析jsp视图，默认使用jstl标签 -->
 	<bean
@@ -60,5 +60,13 @@
 		<property name="suffix" value=".jsp"></property>	
 	</bean>
 		
-
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- 转换器 -->
+		<property name="converters">
+			<list>
+				<!-- 日期转换 -->
+				<bean class="com.fu.ssm.controller.converter.CustomDateConverters"></bean>
+			</list>
+		</property>
+	</bean>
 </beans>
