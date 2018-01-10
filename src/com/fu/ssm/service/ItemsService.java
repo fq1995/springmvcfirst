@@ -15,4 +15,7 @@ public interface ItemsService {
 	
 	//修改商品信息
 	public void updateItems(Integer id, ItemsCustom itemsCustom) throws Exception;
+	
+	//删除商品
+	public int deleteItems(Integer[] ids) throws Exception;
 }

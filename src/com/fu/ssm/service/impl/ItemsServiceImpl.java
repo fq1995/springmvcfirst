@@ -1,5 +1,6 @@
 package com.fu.ssm.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -7,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fu.ssm.mapper.ItemsMapper;
 import com.fu.ssm.mapper.ItemsMapperCustom;
+import com.fu.ssm.mapper.OrderDetailMapper;
 import com.fu.ssm.po.Items;
 import com.fu.ssm.po.ItemsCustom;
 import com.fu.ssm.po.ItemsQueryVO;
+import com.fu.ssm.po.OrderDetailExample;
 import com.fu.ssm.service.ItemsService;
 
 public class ItemsServiceImpl implements ItemsService {
@@ -19,6 +22,9 @@ public class ItemsServiceImpl implements ItemsService {
 	
 	@Autowired
 	private ItemsMapper itemsMapper;
+	
+	@Autowired
+	private OrderDetailMapper orderDetailMapper;
 	
 	@Override
 	public List<ItemsCustom> findItemsList(ItemsQueryVO itemsQueryVO) throws Exception {
@@ -41,6 +47,13 @@ public class ItemsServiceImpl implements ItemsService {
 		//可以更新所以字段，包括大文本类型
 		itemsMapper.updateByPrimaryKeyWithBLOBs(itemsCustom);
 		
+	}
+
+	@Override
+	public int deleteItems(Integer[] ids) throws Exception {
+		//级联删除.....
+		
+		return ItemsMapperCustom.deleteByPrimaryKeys(ids);
 	}
 
 }

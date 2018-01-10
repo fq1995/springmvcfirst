@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fu.ssm.po.ItemsCustom;
+import com.fu.ssm.po.ItemsQueryVO;
 import com.fu.ssm.service.ItemsService;
 
 /**
@@ -32,13 +33,13 @@ public class ItemsController {
 	// RequestMapping实现对queryItems方法和url进行映射，一个方法对应一个url
 	// 一般url和方法名一样
 	@RequestMapping("/queryItems")
-	public ModelAndView queryItems(HttpServletRequest request) throws Exception {
+	public ModelAndView queryItems(HttpServletRequest request, ItemsQueryVO itemsQueryVO) throws Exception {
 		
 		//测试forward请求转发request共享
 		System.out.println(request.getParameter("id"));
 		
 		// 调用service查找数据库，查询商品列表
-		List<ItemsCustom> itemsList = itemsService.findItemsList(null);
+		List<ItemsCustom> itemsList = itemsService.findItemsList(itemsQueryVO);
 		// 返回ModelAndView
 		ModelAndView modelAndView = new ModelAndView();
 		// 相当 于request的setAttribut，在jsp页面中通过itemsList取数据
@@ -108,4 +109,14 @@ public class ItemsController {
 		//页面转发: 浏览器地址栏url不变，request可以共享。
 		return "forward:queryItems.action";
 	}
+	
+	//批量删除商品信息
+	@RequestMapping("/deleteItems")
+	public String deleteItems(Integer[] items_id)throws Exception{
+		itemsService.deleteItems(items_id);
+		
+		return "success";
+	}
+	
+	
 }

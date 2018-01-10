@@ -21,4 +21,14 @@
 			<include refid="query_items_where"></include>
 		</where>
 	</select>
+	
+	<!-- 删除商品 -->
+	<delete id="deleteByPrimaryKeys" parameterType="java.lang.Integer">
+    delete from items
+    where id in 
+	<foreach item="ids" collection="array" open="(" separator="," close=")">
+            #{ids}
+    </foreach>
+		
+  	</delete>
 </mapper>
