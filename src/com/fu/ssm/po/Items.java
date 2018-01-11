@@ -3,15 +3,24 @@ package com.fu.ssm.po;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fu.ssm.validation.ValidGroup1;
+import com.fu.ssm.validation.ValidGroup2;
+
 public class Items implements Serializable {
     private Integer id;
 
+    //校验名称1~30字符
+    @Size(min=1,max=30,message="{item.name.length.error}",groups={ValidGroup1.class})
     private String name;
 
     private Float price;
 
     private String pic;
-
+    
+    @NotNull(message="{item.createtime.isNull}",groups={ValidGroup2.class})
     private Date createtime;
 
     private String detail;
