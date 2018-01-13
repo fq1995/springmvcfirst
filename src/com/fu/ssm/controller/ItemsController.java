@@ -1,8 +1,10 @@
 package com.fu.ssm.controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fu.ssm.po.ItemsCustom;
@@ -121,7 +124,8 @@ public class ItemsController {
 	@RequestMapping("/editItemsSubmit")
 	public String editItemsSubmit(Model model, HttpServletRequest request, Integer id,
 			@ModelAttribute("items")
-			@Validated(value={ValidGroup1.class}) ItemsCustom itemsCustom, BindingResult bindingResult) throws Exception {
+			@Validated(value={ValidGroup1.class}) ItemsCustom itemsCustom, BindingResult bindingResult,
+			MultipartFile items_pic) throws Exception {
 		// 获取校验错误信息
 		if (bindingResult.hasErrors()) {
 			// 输出错误信息
@@ -132,6 +136,23 @@ public class ItemsController {
 			}
 			model.addAttribute("allError", allError);
 		}else{
+			if(items_pic != null){
+				//原始名称
+				String originalFilename = items_pic.getOriginalFilename();
+				
+				if(originalFilename != null &&  originalFilename.length()>0){
+					String pic_path = "E:\\upload\\";
+					//新的图片名称
+					String newFileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));
+					//创建新图片
+					File newFile = new File(pic_path+newFileName);
+//				将内存中数据写入磁盘
+					items_pic.transferTo(newFile);
+					itemsCustom.setPic(newFileName);
+				}
+			}
+			
+			
 			itemsService.updateItems(id, itemsCustom);
 		}
 		//回显
