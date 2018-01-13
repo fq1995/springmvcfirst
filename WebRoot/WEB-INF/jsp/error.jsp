@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>成功提示</title>
+<title>错误提示</title>
 </head>
 <body>
-	<h1>success</h1>
+	<h1>${message}</h1>
 </body>
 </html>

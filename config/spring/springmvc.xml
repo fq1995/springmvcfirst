@@ -95,4 +95,9 @@
 		<!-- 对资源文件内容缓存时间，单位秒 -->
 		<property name="cacheSeconds" value="120"></property>
 	</bean>
+	
+	<!-- 全局异常处理器 
+		只要实现了HandlerExceptionResolver接口
+	-->
+	<bean class="com.fu.ssm.exception.CustomExcceptionResolver"></bean>
 </beans>
