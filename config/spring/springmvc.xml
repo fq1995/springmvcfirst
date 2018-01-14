@@ -113,4 +113,22 @@
 	<!-- 静态资源解析 包括js、css、img -->
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>	
+
+	<!-- 配置拦截器 -->
+	<mvc:interceptors>
+		<!-- 多个拦截器顺序执行 -->
+		<mvc:interceptor>
+			<!-- 登录验证拦截器 -->
+			<mvc:mapping path="/**"/>
+			<bean class="com.fu.ssm.interceptor.LoginInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.fu.ssm.interceptor.HandlerInterceptor1"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.fu.ssm.interceptor.HandlerInterceptor2"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
