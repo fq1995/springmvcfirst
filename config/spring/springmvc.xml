@@ -110,4 +110,7 @@
 		</property>
 	</bean>
 	
+	<!-- 静态资源解析 包括js、css、img -->
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>	
 </beans>
